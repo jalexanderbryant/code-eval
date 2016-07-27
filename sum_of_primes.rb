@@ -1,5 +1,7 @@
-# Sum of primes
-
+=begin
+  Problem Statment:
+  Write a program which determines the sum of the first 1000 prime numbers.
+=end
 def self.is_prime?( prime_test)
   return false if prime_test == 1 
   return true  if prime_test == 2
