@@ -1,2 +1,2 @@
 # code-eval
-Solutions to challenges I solved on codeeval.com
+Solutions to challenges I solved on codeeval.com 
