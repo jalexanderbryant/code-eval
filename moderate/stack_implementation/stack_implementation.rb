@@ -19,26 +19,14 @@
 =end
 
 class Node
+  attr_accessor :data
+  attr_accessor :next
+
   def initialize( data )
     @data = data
     @next = nil
   end
 
-  def get_data
-  	return @data
-  end
-
-  def set_data( data )
-  	@data = data
-  end
-  
-  def get_next
-  	return @next
-  end
-
-  def set_next( next_node )
-  	@next = next_node
-  end
 end
 
 
@@ -49,22 +37,20 @@ class Stack
 
   def push( data )
     new_node = Node.new(data)
-    new_node.set_next( @head )
+    new_node.next = @head
     @head = new_node
   end
 
   def pop
-    if @head.nil?
-      return nil
-    end
+    return nil if @head.nil?
 
-    res = @head.get_data
-    @head = @head.get_next
-    return res
+    res = @head.data
+    @head = @head.next
+    res
   end
 
   def top
-    return @head.get_data
+    return @head.nil? ? nil : @head.data
   end
 
   def clear
@@ -72,7 +58,7 @@ class Stack
   end
 
   def empty?
-    return (@head == nil)
+    return @head == nil
   end
 
   def print
@@ -80,8 +66,8 @@ class Stack
 
     stack_as_array = Array.new
     while node != nil
-      stack_as_array << node.get_data
-      node = node.get_next
+      stack_as_array << node.data
+      node = node.next
     end
     puts stack_as_array.join(' ')
   end
